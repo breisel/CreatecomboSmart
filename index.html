@@ -3,23 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>コンボクリエイター</title>
+    <title>画像並び替えとテキストボックスツール</title>
     <style>
         .button {
-            width: 120px; /* ボタンの幅 */
-            padding: 10px; /* ボタン内の余白 */
-            margin: 5px; /* ボタン間のスペース */
-            box-sizing: border-box; /* パディングとボーダーを含めたサイズ計算 */
-            cursor: pointer; /* マウスカーソルが指に変わる */
+            width: 120px;
+            padding: 10px;
+            margin: 5px;
+            box-sizing: border-box;
+            cursor: pointer;
         }
         .image-container img {
-            width: 100px;
-            height: 100px;
+            width: 100px; /* デフォルトの幅 */
+            height: auto; /* 高さは自動調整 */
             margin: 5px;
         }
         .image-container input[type="text"] {
             margin: 5px;
             padding: 5px;
+        }
+        @media (max-width: 768px) { /* スマホサイズの場合 */
+            .image-container img {
+                width: 70px; /* スマホ用の幅 */
+            }
         }
     </style>
 </head>
