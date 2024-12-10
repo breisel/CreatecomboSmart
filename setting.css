@@ -1,0 +1,11 @@
+.image-container img {
+    width: 100px; /* デフォルトの幅 */
+    height: auto; /* 高さは自動調整 */
+    margin: 5px;
+}
+
+@media (max-width: 768px) { /* スマホサイズの場合 */
+    .image-container img {
+        width: 70px; /* スマホ用の幅 */
+    }
+}
