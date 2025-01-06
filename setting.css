@@ -1,11 +1,44 @@
-.image-container img {
-    width: 100px; /* デフォルトの幅 */
-    height: auto; /* 高さは自動調整 */
-    margin: 5px;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+    background-color: #f0f0f0;
 }
 
-@media (max-width: 768px) { /* スマホサイズの場合 */
-    .image-container img {
-        width: 70px; /* スマホ用の幅 */
+.button-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 5px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.image-container img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+@media (max-width: 600px) {
+    .button-group {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    button {
+        font-size: 14px;
+        padding: 8px;
     }
 }
