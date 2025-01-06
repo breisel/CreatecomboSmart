@@ -3,123 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>コマンドクリエイター</title>
-    <style>
-        .button {
-            width: 120px;
-            padding: 10px;
-            margin: 5px;
-            box-sizing: border-box;
-            cursor: pointer;
-        }
-        .image-container img {
-            width: 100px; /* デフォルトの幅 */
-            height: auto; /* 高さは自動調整 */
-            margin: 5px;
-        }
-        .image-container input[type="text"] {
-            margin: 5px;
-            padding: 5px;
-        }
-        @media (max-width: 768px) { /* スマホサイズの場合 */
-            .image-container img {
-                width: 70px; /* スマホ用の幅 */
-            }
-        }
-    </style>
+    <title>コンボクリエイター</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div>
-	<button data-image="images/7.png">↖</button>
-	<button data-image="images/8.png">↑</button>
-	<button data-image="images/9.png">↗</button>
-	<button data-image="images/zp.png">弱P</button>
-	<button data-image="images/tp.png">中P</button>
-	<button data-image="images/kp.png">強P</button>
-<br>
-	<button data-image="images/4.png">←</button>
-	<button data-image="images/N.png">N</button>	
-	<button data-image="images/6.png">→</button>
-	<button data-image="images/np.png">P</button>
-	<button data-image="images/nk.png">K</button>
-
-<br>
-	<button data-image="images/1.png">↙</button>
-	<button data-image="images/2.png">↓</button>
-	<button data-image="images/3.png">↘</button>
-	<button data-image="images/zk.png">弱K</button>
-	<button data-image="images/tk.png">中K</button>
-	<button data-image="images/kk.png">強K</button>
-<br>
-
-<br>
-	<button data-image="images/z.png">弱</button>
-	<button data-image="images/t.png">中</button>
-	<button data-image="images/k.png">強</button>
-	<button data-image="images/auto.png">AUTO</button>
-	<button data-image="images/N.png">ニュートラル</button>
-	<button data-image="images/SP.png">SP</button>
-	<button data-image="images/DI.png">ドライブインパクト</button>
-	<button data-image="images/DP.png">ドライブパリィ</button>
-	<button data-image="images/hold.png">ホールド</button>
-<br>
-<br>
-        <button data-image="images/next.png">次のコマンド</button>
-	<button data-image="images/plus.png">プラス</button>
-        <br />
-        <button id="newLineBtn" class="button">改行</button>
-        <button id="addTextBoxBtn" class="button">テキストボックス追加</button>
-        <button id="removeLastBtn" class="button">1つ削除</button>
-    </div>
-    <div class="image-container"></div>
-
-    <script>
-    const imageContainer = document.querySelector('.image-container');
-    const buttons = document.querySelectorAll('button[data-image]');
-    const newLineBtn = document.getElementById('newLineBtn');
-    const addTextBoxBtn = document.getElementById('addTextBoxBtn');
-    const removeLastBtn = document.getElementById('removeLastBtn');
-
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            const imageSrc = button.getAttribute('data-image');
-            addImage(imageSrc);
-        });
-    });
-
-    newLineBtn.addEventListener('click', () => {
-        const br = document.createElement('br');
-        imageContainer.appendChild(br);
-    });
-
-    addTextBoxBtn.addEventListener('click', () => {
-        addTextBox();
-    });
-
-    removeLastBtn.addEventListener('click', () => {
-        removeLastElement();
-    });
-
-    function addImage(imageSrc) {
-        const img = document.createElement('img');
-        img.src = imageSrc;
-        img.alt = '選択された画像';
-        imageContainer.appendChild(img);
-    }
-
-    function addTextBox() {
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.placeholder = 'テキストを入力';
-        imageContainer.appendChild(input);
-    }
-
-    function removeLastElement() {
-        const lastElement = imageContainer.lastElementChild;
-        if (lastElement) {
-            imageContainer.removeChild(lastElement);
-        }
-    }
-    </script>
+    <header>
+        <h1>コンボクリエイター</h1>
+    </header>
+    <main>
+        <div class="button-group">
+            <div class="attack-buttons">
+                <button data-image="images/zp.png">弱P</button>
+                <button data-image="images/tp.png">中P</button>
+                <button data-image="images/kp.png">強P</button>
+                <button data-image="images/zk.png">弱K</button>
+                <button data-image="images/tk.png">中K</button>
+                <button data-image="images/kk.png">強K</button>
+                <button data-image="images/z.png">弱</button>
+                <button data-image="images/t.png">中</button>
+                <button data-image="images/k.png">強</button>
+            </div>
+            <div class="special-buttons">
+                <button data-image="images/N.png">N</button>
+                <button data-image="images/np.png">P</button>
+                <button data-image="images/nk.png">K</button>
+                <button data-image="images/auto.png">AUTO</button>
+                <button data-image="images/N.png">ニュートラル</button>
+                <button data-image="images/SP.png">SP</button>
+                <button data-image="images/DI.png">ドライブインパクト</button>
+                <button data-image="images/DP.png">ドライブパリィ</button>
+                <button data-image="images/hold.png">ホールド</button>
+            </div>
+        </div>
+        <div class="control-buttons">
+            <button data-image="images/next.png">次のコマンド</button>
+            <button data-image="images/plus.png">プラス</button>
+            <button id="newLineBtn">改行</button>
+            <button id="addTextBoxBtn">テキストボックス追加</button>
+            <button id="removeLastBtn">1つ削除</button>
+        </div>
+        <div class="image-container"></div>
+    </main>
+    <footer>
+        <p>&copy; 2024 コンボクリエイター</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
